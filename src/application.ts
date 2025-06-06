@@ -39,6 +39,11 @@ export class BackendApplication extends BootMixin(
         extensions: ['.controller.js'],
         nested: true,
       },
+      // observers: {
+      //   dirs: ['observers'],
+      //   extensions: ['.observer.js'],
+      //   nested: true,
+      // },
     };
   }
 }

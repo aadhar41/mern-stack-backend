@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
+import {Post} from './post.model';
+import {Profile} from './profile.model';
 
 @model()
 export class User extends Entity {
@@ -38,6 +40,11 @@ export class User extends Entity {
   })
   createdAt?: string;
 
+  @hasMany(() => Post)
+  posts: Post[];
+
+  @hasOne(() => Profile)
+  profile: Profile;
   // Define well-known properties here
 
   // Indexer property to allow additional data

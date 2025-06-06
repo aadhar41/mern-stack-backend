@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {User} from './user.model';
 
 @model()
 export class Post extends Entity {
@@ -21,6 +22,13 @@ export class Post extends Entity {
   })
   content: string;
 
+  @property({
+    type: 'date',
+  })
+  createdAt?: string;
+
+  @belongsTo(() => User)
+  userId: string;
   // Define well-known properties here
 
   // Indexer property to allow additional data
